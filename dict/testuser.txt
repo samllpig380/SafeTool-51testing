@@ -1,0 +1,8 @@
+sys
+ADAMS
+ADMIN
+ADMN
+0admin
+0manager
+ADVMAIL
+ALLIN1

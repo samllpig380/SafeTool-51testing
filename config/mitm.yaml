@@ -1,0 +1,74 @@
+exploit:
+- "my_exploit_http_split@HTTP\u62C6\u5206"
+- "my_exploit_cache_poisoning@\u7F13\u5B58\u6295\u6BD2"
+- "my_exploit_http_split_simulation_response@\u6A21\u62DF\u62C6\u5206\u54CD\u5E94"
+- "my_exploit_Using_an_Access_Control_Matrix@\u5229\u7528\u8BBF\u95EE\u63A7\u5236\u89C4\
+  \u5219"
+- "my_exploit_Bypass_a_Path_Based_Access_Control@\u7ED5\u8FC7\u57FA\u4E8E\u8DEF\u5F84\
+  \u7684\u8BBF\u95EE\u63A7\u5236"
+- "my_exploit_Bypass_Presentational_Layer@\u7ED5\u8FC7\u8868\u793A\u5C42\u8BBF\u95EE\
+  \u63A7\u5236"
+- "my_exploit_Breaking_Data_Layer@\u7834\u574F\u6570\u636E\u5C42\u8BBF\u95EE\u63A7\
+  \u5236"
+- "my_exploit_DOM_Based_xss@\u57FA\u4E8EDOM\u7684\u8DE8\u7AD9\u70B9\u811A\u672C"
+- "my_exploit_DOM_Injection@DOM\u6CE8\u5165"
+- "my_exploit_xml_injection_response@XML\u6CE8\u5165"
+- "my_exploit_json_injection_response@JSON\u6CE8\u5165"
+- "my_exploit_Dangerous_Use_of_Eval@\u5371\u9669\u7684eval\u51FD\u6570"
+- "my_exploit_Multi_Level_Login_one_stage_2@\u591A\u7EA7\u767B\u5F551\u8BFE\u7A0B2"
+- "my_exploit_Multi_Level_Login_two_stage_2@\u591A\u7EA7\u767B\u5F552\u8BFE\u7A0B2"
+- "my_exploit_Buffer_Overflows@\u7F13\u51B2\u533A\u6EA2\u51FA"
+- "my_exploit_concurrenc@\u8D2D\u7269\u8F66\u5E76\u53D1\u7F3A\u9677"
+- "my_exploit_phishing_with_xss@xss\u7F51\u7EDC\u9493\u9C7C"
+- "my_exploit__Stored_XSS@\u5B58\u50A8\u578Bxss"
+- "my_exploit_reflected_xss@\u53CD\u5C04\u578Bxss"
+- "my_exploit_csrf@\u8DE8\u7AD9\u8BF7\u6C42\u4F2A\u9020"
+- "my_exploit_csrf_bypass@\u8DE8\u7AD9\u8BF7\u6C42\u4F2A\u9020\u65C1\u8DEF"
+- "my_exploit_xst@\u8DE8\u7AD9\u70B9\u8FFD\u8E2A"
+- "my_exploit_improper_error_handling@\u5931\u8D25\u5F00\u653E\u5F0F\u8EAB\u4EFD\u9A8C\
+  \u8BC1\u65B9\u6848"
+- "my_exploit_command_injection@\u547D\u4EE4\u6CE8\u5165"
+- "my_exploit_number_sql_injection@\u6570\u5B57\u578Bsql\u6CE8\u5165"
+- "my_exploit_log_spoofing@\u65E5\u5FD7\u6B3A\u9A97"
+- "my_exploit_xpath_injection@xpath\u6CE8\u5165"
+- "my_exploit_string_sql_injection@\u5B57\u7B26\u578Bsql\u6CE8\u5165"
+- "my_exploit_lab_number_sql_injection@\u6570\u5B57\u578Bsql\u6CE8\u5165\u5B9E\u9A8C\
+  \u5BA4"
+- "my_exploit_modify_data_sql_injection@\u901A\u8FC7sql\u6CE8\u5165\u4FEE\u6539\u6570\
+  \u636E"
+- "my_exploit_database_backdoor@\u901A\u8FC7sql\u6CE8\u5165\u6DFB\u52A0\u540E\u95E8"
+- "my_exploit_Denial_of_Service@\u62D2\u7EDD\u670D\u52A1\u653B\u51FB"
+- "my_exploit_Bypass_HTML_Field_Restrictions@\u7ED5\u8FC7html\u5B57\u6BB5\u9650\u5236"
+- "my_exploit_Exploit_Hidden_Fields@\u5229\u7528\u9690\u85CF\u5B57\u6BB5"
+- "my_exploit_Exploit_Unchecked_Email@\u5229\u7528\u672A\u6821\u9A8C\u7684\u7535\u5B50\
+  \u90AE\u4EF6"
+- "my_exploit_Bypass_Client_Side_JavaScript_Validation@\u7ED5\u8FC7\u5BA2\u6237\u7AEF\
+  \u811A\u672C\u9A8C\u8BC1"
+- "my_exploit_Spoof_an_Authentication_Cookie@\u4F2A\u9020\u8EAB\u4EFD\u9A8C\u8BC1\
+  cookie"
+- "my_exploit_malicious_execution@\u6076\u610F\u6587\u4EF6\u6267\u884C"
+hydra:
+  path: D:\hydra\
+intercept:
+  req: true
+  resp: true
+  url:
+  - http://localhost:8080/WebGoat/attack?Screen=16&menu=100
+  - http://localhost:8080/WebGoat/attack?Screen=53&menu=200
+monitor:
+  filters:
+  - 127.0.0.1
+  - localhost
+  resp: true
+owasp:
+  exploit: my_exploit_http_split
+  sign: Screen=55&menu=100
+  type: req
+safecase:
+- test_ACF_one
+sqlmap:
+  path: D:\sqlmap\sqlmap.py
+wireshark:
+  filter_pcap: http.request.method == POST
+  interfaces: 2
+  task_path: D:\Wireshark\tshark.exe

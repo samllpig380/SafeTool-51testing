@@ -1,0 +1,1 @@
+<HTML> <% java.io.File file = new java.io.File("D:\\javawork\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\WebGoat\\mfe_target\\guest.txt"); file.createNewFile(); %> </HTML>

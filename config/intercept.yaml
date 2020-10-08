@@ -1,0 +1,15 @@
+intercept:
+- request:
+    headers: Authorization_Basic
+    params: '222_333'
+  response:
+    headers: Server_Apache-Coyote/1.1
+    params: HTTP_51testing
+  url: http://localhost:8080/WebGoat/attack?Screen=16&menu=100
+- request:
+    headers: Host_del
+    params: ''
+  response:
+    headers: ''
+    params: role-based_51testing
+  url: http://localhost:8080/WebGoat/attack?Screen=53&menu=200
